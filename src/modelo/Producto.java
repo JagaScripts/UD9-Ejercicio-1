@@ -9,6 +9,6 @@ package modelo;
  */
 public interface Producto {
 
-	public void precioFinal() ;
+	public void precioFinal();
 	
 }
