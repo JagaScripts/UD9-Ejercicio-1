@@ -1,6 +1,3 @@
-/**
- * 
- */
 package modelo;
 
 /**
@@ -10,7 +7,7 @@ package modelo;
  * 
  * Fecha de creación 21/04/2022
  */
-public class Electrodomestico {
+public class Electrodomestico implements Producto {
 
 	// Declaraciones de constantes
 	public static final char CONSUMOS[] = { 'A', 'B', 'C', 'D', 'E', 'F' };
@@ -140,7 +137,7 @@ public class Electrodomestico {
 	
 	}
 	
-	protected void precioFinal() {
+	public void precioFinal() {
 		
 		switch (this.consumo) {
 		case 'A':

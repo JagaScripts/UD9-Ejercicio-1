@@ -1,6 +1,3 @@
-/**
- * 
- */
 package modelo;
 
 /**
@@ -10,6 +7,14 @@ package modelo;
  * 
  * Fecha de creación 21/04/2022
  */
-public class Lavadora {
+public class Lavadora extends Electrodomestico {
 
+	@Override
+	public void precioFinal() {
+		super.precioFinal();
+		
+	}
+	
+	
+	
 }
