@@ -2,6 +2,7 @@
 package vista;
 
 import modelo.Electrodomestico;
+import modelo.Lavadora;
 
 /**
  * UD9-Ejercicio-1 - vista - mainApp
@@ -19,6 +20,7 @@ public class mainApp {
 		Electrodomestico electroPesoPrecio = new Electrodomestico(200, 10);
 		Electrodomestico electroTodos = new Electrodomestico(300, "negro", 'A', 15);
 		Electrodomestico electroTodosIncorrecto = new Electrodomestico(100, "negrsdfas", 'Z', 50);
+		Lavadora lavadora = new Lavadora(5, "negrsdfas", 'Z', 50, 31);
 
 		// Objeto constructor por defecto
 		System.out.println("Electrodomestico con constructor por defecto" + " Color " + electroDefecto.getColor()
@@ -39,6 +41,8 @@ public class mainApp {
 				System.out.println("Electrodomestico con constructor con todos los atributos" + " Color "
 						+ electroTodosIncorrecto.getColor() + " Peso " + electroTodosIncorrecto.getPeso() + " Kg " + " Consumo "
 						+ electroTodosIncorrecto.getConsumo() + " Precio " + electroTodosIncorrecto.getPrecioBase() + " €");
+				
+		System.out.println(lavadora.getPrecioBase() + " "  + lavadora.getColor()  + " "  + lavadora.getCarga()  + " "  + lavadora.getPeso()  + " "  + lavadora.getConsumo());		
 
 	}
 
