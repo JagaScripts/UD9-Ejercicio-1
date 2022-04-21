@@ -9,39 +9,45 @@ package modelo;
  */
 public class Lavadora extends Electrodomestico {
 
+	// Declaraciones de constantes
 	public static final float CARGA_DEFECTO = 5;
 	
+	// Propiedades de clase
 	private float carga;
 	
 	
-	
+	// Constructor por defecto
 	public Lavadora() {
 		super();
 		this.carga = CARGA_DEFECTO;
-		this.precioFinal();
 	}
 
+	// Constructor 2 parametros
 	public Lavadora(double precioBase, float peso) {
 		super(precioBase, peso);
 		this.carga = CARGA_DEFECTO;
-		this.precioFinal();
 	}
 
+	// Constructor todos los prarametros
 	public Lavadora(double precioBase, String color, char consumo, float peso, float carga) {
 		super(precioBase, color, consumo, peso);
 		this.carga = carga;
-		this.precioFinal();
 	}
 
+	//sobreescrivimos el método y llamamos al metodo de la superclase
 	@Override
-	public void precioFinal() {
+	public double precioFinal() {
 		super.precioFinal();
+		
+		double precioFinal = this.precioBase;
 		
 		if (this.carga > 30) {
 
 			this.precioBase += 50;
 
 		}
+		
+		return precioFinal;
 
 	}
 
@@ -52,11 +58,5 @@ public class Lavadora extends Electrodomestico {
 		return carga;
 	}
 
-	@Override
-	public String toString() {
-		return "Lavadora [carga=" + carga + "]";
-	}
-	
-	
 
 }

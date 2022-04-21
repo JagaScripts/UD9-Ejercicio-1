@@ -9,23 +9,28 @@ package modelo;
  */
 public class Television extends Electrodomestico {
 
+	// Declaraciones de constantes
 	public static final float RESOLUCION_DEFECTO = 20;
 
+	// Propiedades de clase
 	private float resolucion;
 	private boolean sintonizador;
 
+	// Constructor por defecto
 	public Television() {
 		super();
 		this.sintonizador = false;
 		this.resolucion = RESOLUCION_DEFECTO;
 	}
 
+	// Constructor 2 parametros
 	public Television(double precioBase, float peso) {
 		super(precioBase, peso);
 		this.sintonizador = false;
 		this.resolucion = RESOLUCION_DEFECTO;
 	}
 
+	// Constructor todos los prarametros
 	public Television(double precioBase, String color, char consumo, float peso, float resolucion,
 			boolean sintonizador) {
 		super(precioBase, color, consumo, peso);
@@ -33,9 +38,12 @@ public class Television extends Electrodomestico {
 		this.resolucion = RESOLUCION_DEFECTO;
 	}
 	
+	//sobreescrivimos el método y llamamos al metodo de la superclase
 	@Override
-	public void precioFinal() {
+	public double precioFinal() {
 		super.precioFinal();
+
+		double precioFinal = this.precioBase;
 		
 		if (this.resolucion > 40) {
 
@@ -48,6 +56,8 @@ public class Television extends Electrodomestico {
 			this.precioBase += 50;
 
 		}
+		
+		return precioFinal;
 	}
 
 	/**

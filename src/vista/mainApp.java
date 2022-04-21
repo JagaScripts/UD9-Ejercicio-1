@@ -1,8 +1,11 @@
 
 package vista;
 
+import java.util.Random;
+
 import modelo.Electrodomestico;
 import modelo.Lavadora;
+import modelo.Television;
 
 /**
  * UD9-Ejercicio-1 - vista - mainApp
@@ -14,36 +17,84 @@ import modelo.Lavadora;
 public class mainApp {
 
 	public static void main(String[] args) {
-
-		// Generamos 3 objetos para ver lo tres constructores
+		
+		
+		//Generamos 3 objetos para ver lo tres constructores
 		Electrodomestico electroDefecto = new Electrodomestico();
 		Electrodomestico electroPesoPrecio = new Electrodomestico(200, 10);
 		Electrodomestico electroTodos = new Electrodomestico(300, "negro", 'A', 15);
-		Electrodomestico electroTodosIncorrecto = new Electrodomestico(100, "negrsdfas", 'Z', 50);
-		Lavadora lavadora = new Lavadora(5, "negrsdfas", 'Z', 50, 31);
-
-		// Objeto constructor por defecto
-		System.out.println("Electrodomestico con constructor por defecto" + " Color " + electroDefecto.getColor()
-				+ " Peso " + electroDefecto.getPeso() + " Kg " + " Consumo " + electroDefecto.getConsumo() + " Precio "
-				+ electroDefecto.getPrecioBase() + " €");
-
-		// Objeto constructor con precio y peso por parametros
-		System.out.println("Electrodomestico con constructor con el precio y peso. El resto por defecto" + " Color "
-				+ electroPesoPrecio.getColor() + " Peso " + electroPesoPrecio.getPeso() + " Kg " + " Consumo "
-				+ electroPesoPrecio.getConsumo() + " Precio " + electroPesoPrecio.getPrecioBase() + " €");
-
-		// Objeto constructor con todos los atributos por parametro
-		System.out.println("Electrodomestico con constructor con todos los atributos" + " Color "
-				+ electroTodos.getColor() + " Peso " + electroTodos.getPeso() + " Kg " + " Consumo "
-				+ electroTodos.getConsumo() + " Precio " + electroTodos.getPrecioBase() + " €");
+		Electrodomestico electroTodosIncorrecto = new Electrodomestico(100, "negrsdfas", 'Z', 50);	
 		
-		// Objeto constructor con todos los atributos por parametro
-				System.out.println("Electrodomestico con constructor con todos los atributos" + " Color "
-						+ electroTodosIncorrecto.getColor() + " Peso " + electroTodosIncorrecto.getPeso() + " Kg " + " Consumo "
-						+ electroTodosIncorrecto.getConsumo() + " Precio " + electroTodosIncorrecto.getPrecioBase() + " €");
+		//Crea un array de Electrodomesticos de 10 posiciones
+		Electrodomestico electrodomestico[] = new Electrodomestico[10];
+		
+		//introducimos los creados anteriormente
+		electrodomestico[0] = electroDefecto;
+		electrodomestico[1] = electroPesoPrecio;
+		electrodomestico[2] = electroTodos;
+		electrodomestico[3] = electroTodosIncorrecto;
+		
+		double sumaTelevision = 0.0;
+		double sumaLavadora = 0.0;
+		
+		//Asigna a cada posición un objeto de las clases Lavadora y Televisión con los valores que desees
+		for (int i = 4; i < electrodomestico.length; i++) {
+			
+			float floatRandom = (float) generarNumeroAleatorio(0, 100);
+			double doubleRandom = (double) generarNumeroAleatorio(0, 1000);
+			boolean booleanSwitch = false;
+			
+			if (i % 2 != 0) {
 				
-		System.out.println(lavadora.getPrecioBase() + " "  + lavadora.getColor()  + " "  + lavadora.getCarga()  + " "  + lavadora.getPeso()  + " "  + lavadora.getConsumo());		
-
+				booleanSwitch = true;
+				
+			}
+			
+			//Genramos lavadoras y televisores 
+			Lavadora lavadora = new Lavadora(doubleRandom, Lavadora.COLORES[1], Lavadora.CONSUMOS[3], floatRandom,
+					(float) doubleRandom + floatRandom);
+			Television television = new Television(doubleRandom, Television.COLORES[4], Television.CONSUMOS[2],
+					floatRandom, (float) doubleRandom + floatRandom, booleanSwitch);
+			
+			//Mestemos uno de cada tipo
+			if (i % 2 != 0) {
+				
+				electrodomestico[i] = lavadora;
+				
+			}else {
+				
+				electrodomestico[i] = television;
+				
+			}
+			
+			
+			//sumamos los televisores y lavadoras por sparado
+			if (electrodomestico[i] instanceof Lavadora){
+				
+				sumaLavadora += electrodomestico[i].precioFinal();
+				
+			}else if (electrodomestico[i] instanceof Television) {
+				
+				sumaTelevision += electrodomestico[i].precioFinal();
+				
+			}
+						
+		}
+		
+		//impreimimos las sumas
+		System.out.println("La suma de La clase Electrodomestico es " + (sumaTelevision + sumaLavadora));
+		System.out.println("La suma de La clase Lavadora es " + sumaLavadora);
+		System.out.println("La suma de La clase Television es " + sumaTelevision);
+		
 	}
 
+	public static int generarNumeroAleatorio(int numBase, int numTope){
+		
+		Random random;
+		int numeroAleatorio; 
+
+		random = new Random();
+	    numeroAleatorio = numBase + random.nextInt((numTope+1) - numBase);
+		return numeroAleatorio;
+	}
 }

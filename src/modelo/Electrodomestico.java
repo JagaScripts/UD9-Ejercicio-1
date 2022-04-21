@@ -29,7 +29,6 @@ public class Electrodomestico implements Cargable {
 		this.consumo = CONSUMO_DEFECTO;
 		this.peso = PESO_DEFECTO;
 		this.precioBase = PRECIO_DEFECTO;
-		//this.precioFinal();
 		
 	}
 
@@ -39,7 +38,6 @@ public class Electrodomestico implements Cargable {
 		this.consumo = CONSUMO_DEFECTO;
 		this.peso = peso;
 		this.precioBase = precioBase;
-		//this.precioFinal();
 		
 		
 	}
@@ -50,7 +48,6 @@ public class Electrodomestico implements Cargable {
 		this.comprobarColor(color);
 		this.peso = peso;
 		this.precioBase = precioBase;
-		//this.precioFinal();
 		
 	}
 
@@ -87,7 +84,7 @@ public class Electrodomestico implements Cargable {
 		this.peso = peso;
 	}
 	
-
+	//comprueba que la letra es correcta
 	protected void comprobarConsumoEnergetico(char letra) {
 		
 		int i = CONSUMOS.length - 1;
@@ -113,6 +110,7 @@ public class Electrodomestico implements Cargable {
 
 	}
 	
+	//comprueba que el color es correcto
 	protected void comprobarColor(String color) {
 		
 		int i = COLORES.length - 1;
@@ -137,26 +135,28 @@ public class Electrodomestico implements Cargable {
 	
 	}
 	
-	public void precioFinal() {
+	public double precioFinal() {
+		
+		double precioFinal = this.precioBase;
 		
 		switch (this.consumo) {
 		case 'A':
-			this.precioBase += 100;
+			precioFinal += 100;
 			break;
 		case 'B':
-			this.precioBase += 80;
+			precioFinal += 80;
 			break;
 		case 'C':
-			this.precioBase += 60;
+			precioFinal += 60;
 			break;
 		case 'D':
-			this.precioBase += 50;
+			precioFinal += 50;
 			break;
 		case 'E':
-			this.precioBase += 30;
+			precioFinal += 30;
 			break;
 		case 'F':
-			this.precioBase += 10;
+			precioFinal += 10;
 			break;
 			
 		default:
@@ -165,21 +165,23 @@ public class Electrodomestico implements Cargable {
 		
 		if (this.peso >= 0 && this.peso <= 19) {
 			
-			this.precioBase += 10;
+			precioFinal += 10;
 			
 		} else if (this.peso >= 20 && this.peso <= 49 ) {
 			
-			this.precioBase += 50;
+			precioFinal += 50;
 			
 		} else if (this.peso >= 50 && this.peso <= 79) {
 			
-			this.precioBase += 80;
+			precioFinal += 80;
 			
 		} else if (this.peso > 80) {
 			
-			this.precioBase += 100;
+			precioFinal += 100;
 			
 		} 
+		
+		return precioFinal;
 		
 	}
 

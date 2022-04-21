@@ -9,6 +9,8 @@ package modelo;
  */
 public interface Cargable {
 
-	public abstract void precioFinal();
+	
+	//metodo abstracto
+	public abstract double precioFinal();
 	
 }
