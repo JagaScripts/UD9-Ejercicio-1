@@ -7,7 +7,7 @@ package modelo;
  * 
  * Fecha de creación 21/04/2022
  */
-public interface Producto {
+public interface Cargable {
 
 	public abstract void precioFinal();
 	
