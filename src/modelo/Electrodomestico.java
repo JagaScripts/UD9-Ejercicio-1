@@ -7,7 +7,7 @@ package modelo;
  * 
  * Fecha de creación 21/04/2022
  */
-public class Electrodomestico implements Producto {
+public class Electrodomestico implements Cargable {
 
 	// Declaraciones de constantes
 	public static final char CONSUMOS[] = { 'A', 'B', 'C', 'D', 'E', 'F' };
@@ -29,7 +29,7 @@ public class Electrodomestico implements Producto {
 		this.consumo = CONSUMO_DEFECTO;
 		this.peso = PESO_DEFECTO;
 		this.precioBase = PRECIO_DEFECTO;
-		this.precioFinal();
+		//this.precioFinal();
 		
 	}
 
@@ -39,7 +39,7 @@ public class Electrodomestico implements Producto {
 		this.consumo = CONSUMO_DEFECTO;
 		this.peso = peso;
 		this.precioBase = precioBase;
-		this.precioFinal();
+		//this.precioFinal();
 		
 		
 	}
@@ -50,7 +50,7 @@ public class Electrodomestico implements Producto {
 		this.comprobarColor(color);
 		this.peso = peso;
 		this.precioBase = precioBase;
-		this.precioFinal();
+		//this.precioFinal();
 		
 	}
 
