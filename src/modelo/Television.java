@@ -47,13 +47,13 @@ public class Television extends Electrodomestico {
 		
 		if (this.resolucion > 40) {
 
-			this.precioBase *= 1.30 ;
+			precioFinal *= 1.30 ;
 
 		}
 		
 		if (this.sintonizador) {
 
-			this.precioBase += 50;
+			precioFinal += 50;
 
 		}
 		
